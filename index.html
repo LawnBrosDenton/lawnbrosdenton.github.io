@@ -11,15 +11,15 @@
       --yellow: #f0c419;
       --dark: #333;
       --light: #fff;
-      --gray: #f2f2f2;
-      --radius: 8px;
-      --gap: 1.5rem;
+      --gray: #f7f7f7;
+      --radius: 10px;
+      --gap: 2rem;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Poppins', sans-serif;
-      color: var(--dark);
       background: var(--gray);
+      color: var(--dark);
       line-height: 1.6;
     }
     a { text-decoration: none; color: inherit; }
@@ -38,19 +38,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem var(--gap);
+      padding: 1rem var(--gap);
     }
-    .logo { font-weight: 600; font-size: 1.25rem; color: var(--green); }
+    .logo { font-weight: 600; font-size: 1.5rem; color: var(--green); }
     nav ul {
       list-style: none;
       display: flex;
       gap: 1rem;
     }
-    nav a {
-      padding: 0.5rem;
-      border-radius: var(--radius);
-      transition: background 0.2s;
-    }
+    nav a { padding: 0.5rem 0.75rem; border-radius: var(--radius); transition: background 0.2s; }
     nav a:hover { background: var(--gray); }
 
     /* HERO */
@@ -58,10 +54,10 @@
       background: var(--green);
       color: var(--light);
       text-align: center;
-      padding: 4rem var(--gap);
+      padding: calc(var(--gap) * 2) var(--gap);
     }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .hero p { font-size: 1.125rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: 2.75rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.25rem; margin-bottom: 1.5rem; }
     .btn-primary {
       background: var(--yellow);
       color: var(--dark);
@@ -70,20 +66,42 @@
       border-radius: var(--radius);
       transition: opacity 0.2s;
     }
-    .btn-primary:hover { opacity: 0.85; }
+    .btn-primary:hover { opacity: 0.8; }
 
     /* MAIN CONTAINER */
-    .container {
+    main {
       max-width: 960px;
       margin: 0 auto;
       padding: var(--gap);
     }
-    h2 { color: var(--green); margin-bottom: 1rem; }
+    section {
+      margin-top: var(--gap);
+    }
+    h2 {
+      color: var(--green);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+      border-bottom: 3px solid var(--yellow);
+      display: inline-block;
+      padding-bottom: 0.25rem;
+    }
 
-    /* CARDS */
+    /* ABOUT */
+    #about .card {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: var(--gap);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    #about ul {
+      list-style: disc inside;
+      margin-top: 1rem;
+    }
+
+    /* SERVICES */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
       gap: var(--gap);
     }
     .card {
@@ -92,20 +110,52 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
       padding: var(--gap);
     }
-    .card h3 { margin-bottom: 0.75rem; font-size: 1.125rem; }
-    .card p, .card ul { margin-bottom: 0.5rem; }
-
-    /* SERVICES SECTION */
     .tier {
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
+      flex-direction: column;
+      gap: 0.5rem;
     }
-    .tier h3 { margin-top: 0; }
-    .tier .price {
-      margin-left: auto;
-      font-weight: 600;
+    .tier h3 {
+      margin: 0;
       font-size: 1.25rem;
+      color: var(--dark);
+    }
+    .price {
+      margin-top: auto;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .tier ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .tier ul li::before {
+      content: "✔";
+      margin-right: 0.5rem;
+      color: var(--yellow);
+    }
+
+    /* MEMBERSHIP & SCHEDULE */
+    .card-long {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: var(--gap);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    #schedule ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    #schedule ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    #schedule ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
       color: var(--green);
     }
 
@@ -113,19 +163,36 @@
     form {
       display: grid;
       gap: var(--gap);
+      background: var(--light);
+      padding: var(--gap);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
-    form input, form select, form button {
+    form .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+    }
+    form label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    form input, form select {
+      width: 100%;
+      padding: 0.5rem;
       border: 1px solid #ccc;
       border-radius: var(--radius);
-      font-size: 1rem;
     }
     form button {
       background: var(--green);
       color: var(--light);
-      cursor: pointer;
       border: none;
-      font-weight: 600;
       padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
       transition: opacity 0.2s;
     }
     form button:hover { opacity: 0.9; }
@@ -138,14 +205,23 @@
       padding-bottom: var(--gap);
     }
     .testimonial {
-      min-width: 250px;
+      min-width: 260px;
       background: var(--light);
       border-radius: var(--radius);
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
       padding: var(--gap);
+      flex-shrink: 0;
     }
-    .testimonial p { font-style: italic; margin-bottom: 0.5rem; }
-    .testimonial span { font-weight: 600; display: block; text-align: right; }
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .testimonial span {
+      font-weight: 600;
+      display: block;
+      text-align: right;
+      color: var(--green);
+    }
 
     /* FOOTER */
     footer {
@@ -153,15 +229,10 @@
       color: var(--light);
       text-align: center;
       padding: var(--gap);
-      margin-top: 2rem;
+      margin-top: var(--gap);
+      font-size: 0.9rem;
     }
     footer a { color: var(--yellow); }
-
-    /* RESPONSIVE NAV TOGGLE (optional) */
-    @media (max-width: 600px) {
-      nav ul { display: none; }
-      /* You could add a burger menu here if desired */
-    }
   </style>
 </head>
 <body>
@@ -189,47 +260,48 @@
     <a href="#booking" class="btn-primary">Get Started</a>
   </section>
 
-  <main class="container">
-
+  <main>
     <section id="about">
       <h2>About Us</h2>
-      <p>We’re two young entrepreneurs from Denton, TX. We take pride in every cut, edge, and blow—building our hustle one yard at a time.</p>
+      <div class="card card-long">
+        <p>Hey neighbors! We’re two best friends born in 2011, growing up right here in Denton. We started Lawn Bros Denton to:</p>
+        <ul>
+          <li>Learn real-world skills (business, communication, responsibility)</li>
+          <li>Serve our community with reliable, honest work</li>
+          <li>Have fun and build our hustle—one yard at a time</li>
+        </ul>
+        <p>When you book us, you’re supporting local teens and investing in Denton’s future lawn legends!</p>
+      </div>
     </section>
 
     <section id="services">
       <h2>Services &amp; Pricing</h2>
       <div class="cards">
         <div class="card tier">
-          <div>
-            <h3>Budget</h3>
-            <ul>
-              <li>Precision mow (3″ cut)</li>
-              <li>Clean edging (sidewalks, driveways, beds)</li>
-            </ul>
-          </div>
+          <h3>Budget</h3>
+          <ul>
+            <li>Precision mow (3″ cut)</li>
+            <li>Clean edging (sidewalks, driveways, beds)</li>
+          </ul>
           <div class="price">$25</div>
         </div>
         <div class="card tier">
-          <div>
-            <h3>Mid</h3>
-            <p><em>Everything in Budget, plus:</em></p>
-            <ul>
-              <li>Power blow-off of clippings</li>
-              <li>Final debris sweep</li>
-            </ul>
-          </div>
+          <h3>Mid</h3>
+          <p><em>Everything in Budget, plus:</em></p>
+          <ul>
+            <li>Power blow-off of clippings</li>
+            <li>Final debris sweep</li>
+          </ul>
           <div class="price">$30</div>
         </div>
         <div class="card tier">
-          <div>
-            <h3>Premium</h3>
-            <p><em>Everything in Mid, plus one:</em></p>
-            <ul>
-              <li>Pet-waste removal</li>
-              <li>Light shrub trim (≤3 shrubs)</li>
-              <li>Spot weed-pull</li>
-            </ul>
-          </div>
+          <h3>Premium</h3>
+          <p><em>Everything in Mid, plus one:</em></p>
+          <ul>
+            <li>Pet-waste removal</li>
+            <li>Light shrub trim (≤3 shrubs)</li>
+            <li>Spot weed-pull</li>
+          </ul>
           <div class="price">$35</div>
         </div>
       </div>
@@ -237,31 +309,37 @@
 
     <section id="membership">
       <h2>Membership Plan</h2>
-      <div class="card">
+      <div class="card card-long">
         <p><strong>4 Premium visits in 30 days.</strong> One top-tier service each week, pre-paid at a special rate. Hassle-free, recurring care.</p>
       </div>
     </section>
 
     <section id="schedule">
       <h2>Schedule &amp; Availability</h2>
-      <ul>
-        <li><strong>Weekdays:</strong> Mon–Fri, 5 PM–8 PM</li>
-        <li><strong>Weekends:</strong> One full day (8 AM–8 PM) on the 1st, 3rd &amp; 5th weekends</li>
-      </ul>
+      <div class="card card-long">
+        <ul>
+          <li><strong>Weekdays:</strong> Mon–Fri, 5 PM–8 PM</li>
+          <li><strong>Weekends:</strong> One full day (8 AM–8 PM) on the 1st, 3rd &amp; 5th weekends</li>
+        </ul>
+      </div>
     </section>
 
     <section id="booking">
       <h2>Book &amp; Pay</h2>
       <form>
-        <div class="cards">
-          <div class="card">
-            <label>Name<br><input type="text" name="name" placeholder="Your name"></label>
+        <div class="grid">
+          <div>
+            <label>Name
+              <input type="text" name="name" placeholder="Your name">
+            </label>
           </div>
-          <div class="card">
-            <label>Contact<br><input type="text" name="contact" placeholder="Phone or email"></label>
+          <div>
+            <label>Contact
+              <input type="text" name="contact" placeholder="Phone or email">
+            </label>
           </div>
         </div>
-        <label>Tier<br>
+        <label>Service Tier
           <select name="tier">
             <option>Budget – $25/yard</option>
             <option>Mid – $30/yard</option>
@@ -269,8 +347,10 @@
             <option>Membership</option>
           </select>
         </label>
-        <label>Date &amp; Time<br><input type="datetime-local" name="datetime"></label>
-        <label>Payment<br>
+        <label>Date &amp; Time
+          <input type="datetime-local" name="datetime">
+        </label>
+        <label>Payment Method
           <select name="payment">
             <option>Cash App (@LawnBrosDenton)</option>
             <option>Cash</option>
