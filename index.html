@@ -223,6 +223,11 @@
       color: var(--green);
     }
 
+    /* SERVICE AREA */
+    #service-area .card-long {
+      text-align: center;
+    }
+
     /* FOOTER */
     footer {
       background: var(--dark);
@@ -248,6 +253,7 @@
           <li><a href="#schedule">Schedule</a></li>
           <li><a href="#booking">Book</a></li>
           <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#service-area">Area</a></li>
         </ul>
       </nav>
       <a href="#booking" class="btn-primary">Book Now</a>
@@ -256,7 +262,7 @@
 
   <section class="hero">
     <h1>Hustle &amp; Mow</h1>
-    <p>We’re two 13-year-olds keeping Denton’s lawns on point.</p>
+    <p>We’re two middle school students keeping Denton’s lawns on point.</p>
     <a href="#booking" class="btn-primary">Get Started</a>
   </section>
 
@@ -264,13 +270,13 @@
     <section id="about">
       <h2>About Us</h2>
       <div class="card card-long">
-        <p>Hey neighbors! We’re two best friends born in 2011, growing up right here in Denton. We started Lawn Bros Denton to:</p>
+        <p>Hey neighbors! We’re friends born in Denton, raised right here in the neighborhood. We launched Lawn Bros Denton to:</p>
         <ul>
-          <li>Learn real-world skills (business, communication, responsibility)</li>
-          <li>Serve our community with reliable, honest work</li>
-          <li>Have fun and build our hustle—one yard at a time</li>
+          <li>Master real-world skills—business, communication, responsibility</li>
+          <li>Deliver honest, reliable yard care with a personal touch</li>
+          <li>Have fun hustling and building our reputation—one yard at a time</li>
         </ul>
-        <p>When you book us, you’re supporting local teens and investing in Denton’s future lawn legends!</p>
+        <p>Booking with us means supporting local teen entrepreneurship and investing in Denton’s future lawn legends!</p>
       </div>
     </section>
 
@@ -348,8 +354,31 @@
             <option>Membership – $96/month</option>
           </select>
         </label>
-        <label>Date &amp; Time
-          <input type="datetime-local" name="datetime">
+        <label>Date
+          <input type="date" name="date" required />
+        </label>
+        <label>Time
+          <select name="time" required>
+          <option value="">Select a Time</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+          <option value="6:00 PM">6:00 PM</option>
+          <option value="7:00 PM">7:00 PM</option>
+          <option value="9:00 AM (Weekend)">9:00 AM (Weekend)</option>
+          <option value="10:00 AM (Weekend)">10:00 AM (Weekend)</option>
+          <option value="11:00 AM (Weekend)">11:00 AM (Weekend)</option>
+          <option value="12:00 PM (Weekend)">12:00 PM (Weekend)</option>
+          <option value="1:00 PM (Weekend)">1:00 PM (Weekend)</option>
+          <option value="2:00 PM (Weekend)">2:00 PM (Weekend)</option>
+          <option value="3:00 PM (Weekend)">3:00 PM (Weekend)</option>
+          <option value="4:00 PM (Weekend)">4:00 PM (Weekend)</option>
+          <option value="5:00 PM (Weekend)">5:00 PM (Weekend)</option>
+          <option value="6:00 PM (Weekend)">6:00 PM (Weekend)</option>
+          <option value="7:00 PM (Weekend)">7:00 PM (Weekend)</option>
+    </select>
+        </label>
+        <label>Special Instructions
+        <textarea name="notes" placeholder="Any special instructions?" rows="4"></textarea>
         </label>
         <label>Payment Method
           <select name="payment">
@@ -386,6 +415,13 @@
         <div class="testimonial">
           <p>“My yard’s never looked better!”</p><span>– Ms. Ramirez</span>
         </div>
+      </div>
+    </section>
+
+    <section id="service-area">
+      <h2>Service Area</h2>
+      <div class="card card-long">
+        <p>We proudly serve Denton, TX and the surrounding neighborhoods within a 3-mile radius, including Strickland, Emerald Heights, Sonterra, Oak Hill, and Pecan Creek. If you’re nearby, we’ve got you covered!</p>
       </div>
     </section>
 
